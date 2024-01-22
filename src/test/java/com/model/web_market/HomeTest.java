@@ -66,20 +66,6 @@ public class HomeTest {
         }
     }
 
-//    @Test
-//    void TestLogin() throws IOException, ServletException {
-//        try {
-//            Mockito.when(request.getParameter("name")).thenReturn("1");
-//            Mockito.when(request.getParameter("description")).thenReturn("1");
-//            Mockito.when(request.getParameter("qauantity")).thenReturn("1");
-//            AddProduct servlet = new AddProduct();
-//
-//            servlet.doPost(request, response);
-//        }catch (Exception e){
-//            e.printStackTrace();
-//        }
-//    }
-
     @Test
     void TestAddProtected() throws IOException, ServletException {
         try {
