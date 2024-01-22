@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd"
+         version="6.0">
+
+    <servlet>
+        <servlet-name>MainPage</servlet-name>
+        <servlet-class>com.control.web_market.MainPage</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>MainPage</servlet-name>
+        <url-pattern>/MainPage</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Login</servlet-name>
+        <servlet-class>com.control.web_market.Login</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Login</servlet-name>
+        <url-pattern>/Login</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Bag</servlet-name>
+        <servlet-class>com.control.web_market.Bag</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Bag</servlet-name>
+        <url-pattern>/Bag</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Logout</servlet-name>
+        <servlet-class>com.control.web_market.Logout</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Logout</servlet-name>
+        <url-pattern>/Logout</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>AddBag</servlet-name>
+        <servlet-class>com.control.web_market.AddBag</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddBag</servlet-name>
+        <url-pattern>/AddBag</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>AddProduct</servlet-name>
+        <servlet-class>com.control.web_market.AddProduct</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddProduct</servlet-name>
+        <url-pattern>/AddProduct</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>removeBag</servlet-name>
+        <servlet-class>com.control.web_market.removeBag</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>removeBag</servlet-name>
+        <url-pattern>/removeBag</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>removeProduct</servlet-name>
+        <servlet-class>com.control.web_market.removeProduct</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>removeProduct</servlet-name>
+        <url-pattern>/removeProduct</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ReProduct</servlet-name>
+        <servlet-class>com.control.web_market.ReProduct</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ReProduct</servlet-name>
+        <url-pattern>/ReProduct</url-pattern>
+    </servlet-mapping>
+
+</web-app>

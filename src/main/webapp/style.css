@@ -1,0 +1,79 @@
+.flex-container-1 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  background: #e7e7e7;
+  margin-bottom: 10px;
+}
+
+.flex-container-1 > div {
+  flex-direction: column;
+  width: 400px;
+  height: 50px;
+  background: #d1d0d0;
+
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  margin: 4px;
+  border: black solid 1px;
+}
+
+
+.flex-container-2 {
+  display: flex;
+  align-items: stretch;
+  gap: 5px;
+  margin-bottom: 10px;
+  background: #e7e7e7;
+}
+
+.flex-container-2 > div {
+  padding: 10px;
+  margin: 4px;
+  flex: 1;
+  background: #e7e7e7;
+}
+
+.flex-container-2 > div:nth-child(2) {
+  flex: 2;
+}
+
+p {
+  margin-top: 0; 
+}
+
+
+.flex-container-3 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  background: #e7e7e7;
+  margin-bottom: 10px;
+}
+
+.flex-container-3 > div {
+  border: black solid 1px;
+  text-align: center;
+  flex: 1;
+  padding: 10px;
+}
+
+.icon-button {
+  background-image: url("shopping-cart-empty-2.svg");
+  background-size: 32px 32px;
+}
+
+@media (max-width: 800px) {
+  .flex-container-1 {
+    flex-direction: column;
+  }
+
+  .flex-container-1 > div {
+    width: 100%;
+  }
+
+  .flex-container-2 {
+    flex-direction: column;
+  }
+}
