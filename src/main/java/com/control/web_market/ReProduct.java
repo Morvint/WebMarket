@@ -1,18 +1,15 @@
-package com.model.web_market;
+package com.control.web_market;
 
+import com.control.web_market.Product;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.PrintWriter;
+import java.io.*;
 
-public class removeProduct extends HttpServlet {
+public class ReProduct extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         PrintWriter out = response.getWriter();
@@ -22,6 +19,8 @@ public class removeProduct extends HttpServlet {
 
         HttpSession session = request.getSession(false);
         String name = request.getParameter("name");
+        String description = request.getParameter("description");
+        String qauantity = request.getParameter("qauantity");
         String sess_name = (String)session.getAttribute("name");
         out.println("<p>" + name + "</p>");
         out.println("<p>" + sess_name + "</p>");
@@ -37,62 +36,20 @@ public class removeProduct extends HttpServlet {
                 ads.add(str_prod[0], str_prod[1], str_prod[2]);
             }
 
-
-
-            BufferedReader in = new BufferedReader(new FileReader("C:\\Users\\tv_20\\IdeaProjects\\Web_market\\Bag.txt"));
-
-            String s;
-            String [] str;
             StringBuilder result = new StringBuilder();
-            while((s = in.readLine()) != null){
-                str = s.split(";");
-
-                for(int i = 0; i < str.length; i++){
-                    if (i == 0){
-                        result.append(str[0]);
-                        result.append(";");
-                        continue;
-                    }
-
-                    String [] text;
-                    text = str[i].split("//");
-
-                    if(i == 1 && str[0].equals(sess_name)){
-                        if(text[0].equals(name)){
-                            continue;
-                        }
-                        result.append(text[0] + "//" + text[1]);
-                        result.append(";");
-                        continue;
-                    }
-                    if(text[0].equals(name)){
-                        continue;
-                    }
-                    result.append(text[0] + "//" + text[1]);
-                    if(i != str.length - 1){
-                        result.append(";");
-                    }
-                }
-                result.append("\n");
-            }
-
-            PrintWriter writer = new PrintWriter("C:\\Users\\tv_20\\IdeaProjects\\Web_market\\Bag.txt");
-            writer.print("");
-            writer.print(result);
-            writer.close();
-
-
-
-            StringBuilder st = new StringBuilder();
             for(int i = 0; i < ads.size(); i++){
-                if (ads.getAd(i).getName().equals(name)){
+                if(name.equals(ads.getAd(i).getName())){
+                    result.append(ads.getAd(i).getName() + ";");
+                    result.append(qauantity + ";");
+                    result.append(description + "\n");
                     continue;
                 }
-                st.append(ads.getAd(i).getName() + ";");
-                st.append(ads.getAd(i).getQuantity() + ";");
-                st.append(ads.getAd(i).getDescription() + "\n");
+                result.append(ads.getAd(i).getName() + ";");
+                result.append(ads.getAd(i).getQuantity() + ";");
+                result.append(ads.getAd(i).getDescription() + "\n");
             }
-            String text = st.toString();
+
+            String text = result.toString();
             PrintWriter writer_prod = new PrintWriter("C:\\Users\\tv_20\\IdeaProjects\\Web_market\\product.txt");
             writer_prod.print("");
             writer_prod.print(text);
@@ -101,6 +58,8 @@ public class removeProduct extends HttpServlet {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
+
+
 
         out.println("<meta http-equiv='refresh' content='0; URL=http://localhost:8080/Web_market_war_exploded/MainPage'>" +
                 "</body></html>");

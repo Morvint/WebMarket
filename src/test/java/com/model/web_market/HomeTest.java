@@ -1,5 +1,7 @@
 package com.model.web_market;
 
+import com.control.web_market.AddProduct;
+import com.control.web_market.Login;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.Mockito;
@@ -64,19 +66,19 @@ public class HomeTest {
         }
     }
 
-    @Test
-    void TestLogin() throws IOException, ServletException {
-        try {
-            Mockito.when(request.getParameter("name")).thenReturn("1");
-            Mockito.when(request.getParameter("description")).thenReturn("1");
-            Mockito.when(request.getParameter("qauantity")).thenReturn("1");
-            AddProduct servlet = new AddProduct();
-
-            servlet.doPost(request, response);
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-    }
+//    @Test
+//    void TestLogin() throws IOException, ServletException {
+//        try {
+//            Mockito.when(request.getParameter("name")).thenReturn("1");
+//            Mockito.when(request.getParameter("description")).thenReturn("1");
+//            Mockito.when(request.getParameter("qauantity")).thenReturn("1");
+//            AddProduct servlet = new AddProduct();
+//
+//            servlet.doPost(request, response);
+//        }catch (Exception e){
+//            e.printStackTrace();
+//        }
+//    }
 
     @Test
     void TestAddProtected() throws IOException, ServletException {

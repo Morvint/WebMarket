@@ -1,4 +1,4 @@
-package com.model.web_market;
+package com.control.web_market;
 
 public class Person {
     private String name;
