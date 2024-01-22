@@ -23,9 +23,9 @@ public class AddProduct extends HttpServlet {
         String qauantity = request.getParameter("qauantity");
 
         StringBuilder str = new StringBuilder();
-        str.append("\n" + name + ";");
+        str.append(name + ";");
         str.append(qauantity + ";");
-        str.append(description);
+        str.append(description + "\n");
 
         String text = str.toString();
         try {
