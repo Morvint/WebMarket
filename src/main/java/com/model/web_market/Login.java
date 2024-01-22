@@ -1,4 +1,4 @@
-package com.control.web_market;
+package com.model.web_market;
 
 //import javax.jms.Session;
 import jakarta.servlet.ServletException;

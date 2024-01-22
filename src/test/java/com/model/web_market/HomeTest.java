@@ -1,7 +1,6 @@
-package com.control.web_market;
+package com.model.web_market;
 
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 
@@ -28,7 +27,7 @@ public class HomeTest {
         assertEquals(f2.exists(),true);
         File f3 = new File("C:\\Users\\tv_20\\IdeaProjects\\Web_market\\Bag.txt");
         assertEquals(f3.exists(),true);
-        com.control.web_market.MainPage a = new com.control.web_market.MainPage();
+        MainPage a = new MainPage();
         }catch (Exception e){
             e.printStackTrace();
         }

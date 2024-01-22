@@ -1,20 +1,18 @@
-package com.control.web_market;
+package com.model.web_market;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
-import java.io.BufferedWriter;
-import java.io.File;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-public class removeProduct extends HttpServlet {
+public class removeBag extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         PrintWriter out = response.getWriter();
@@ -41,11 +39,13 @@ public class removeProduct extends HttpServlet {
 
 
 
+
             BufferedReader in = new BufferedReader(new FileReader("C:\\Users\\tv_20\\IdeaProjects\\Web_market\\Bag.txt"));
 
             String s;
             String [] str;
             StringBuilder result = new StringBuilder();
+
             while((s = in.readLine()) != null){
                 str = s.split(";");
 
@@ -60,17 +60,63 @@ public class removeProduct extends HttpServlet {
                     text = str[i].split("//");
 
                     if(i == 1 && str[0].equals(sess_name)){
-                        if(text[0].equals(name)){
-                            continue;
+                        if(text[0].equals(name) && str[0].equals(sess_name)){
+                            int num = Integer.parseInt(text[1]);
+                            if (num - 1 == 0){
+                                for(int j = 0; j < ads.size(); j++){
+                                    if(name.equals(ads.getAd(j).getName())){
+                                        ads.getAd(j).setQuantity(Integer.parseInt(ads.getAd(j).getQuantity()) + 1);
+                                    }
+                                }
+
+                                continue;
+                            }else{
+                                result.append(text[0]);
+                                result.append("//");
+                                result.append(num - 1);
+                                result.append(";");
+
+                                for(int j = 0; j < ads.size(); j++){
+                                    if(name.equals(ads.getAd(j).getName())){
+                                        ads.getAd(j).setQuantity(Integer.parseInt(ads.getAd(j).getQuantity()) + 1);
+                                    }
+                                }
+                                continue;
+                            }
                         }
-                        result.append(text[0] + "//" + text[1]);
+                        result.append(text[0]);
+                        result.append("//");
+                        result.append(text[1]);
                         result.append(";");
                         continue;
                     }
-                    if(text[0].equals(name)){
-                        continue;
+                    if(text[0].equals(name) && str[0].equals(sess_name)){
+                        int num = Integer.parseInt(text[1]);
+                        if (num - 1 == 0){
+                            for(int j = 0; j < ads.size(); j++){
+                                if(name.equals(ads.getAd(j).getName())){
+                                    ads.getAd(j).setQuantity(Integer.parseInt(ads.getAd(j).getQuantity()) + 1);
+                                }
+                            }
+
+                            continue;
+                        }else{
+                            result.append(text[0]);
+                            result.append("//");
+                            result.append(num - 1);
+                            result.append(";");
+
+                            for(int j = 0; j < ads.size(); j++){
+                                if(name.equals(ads.getAd(j).getName())){
+                                    ads.getAd(j).setQuantity(Integer.parseInt(ads.getAd(j).getQuantity()) + 1);
+                                }
+                            }
+                            continue;
+                        }
                     }
-                    result.append(text[0] + "//" + text[1]);
+                    result.append(text[0]);
+                    result.append("//");
+                    result.append(text[1]);
                     if(i != str.length - 1){
                         result.append(";");
                     }
@@ -83,13 +129,8 @@ public class removeProduct extends HttpServlet {
             writer.print(result);
             writer.close();
 
-
-
             StringBuilder st = new StringBuilder();
             for(int i = 0; i < ads.size(); i++){
-                if (ads.getAd(i).getName().equals(name)){
-                    continue;
-                }
                 st.append(ads.getAd(i).getName() + ";");
                 st.append(ads.getAd(i).getQuantity() + ";");
                 st.append(ads.getAd(i).getDescription() + "\n");
@@ -104,7 +145,7 @@ public class removeProduct extends HttpServlet {
             e.printStackTrace();
         }
 
-        out.println("<meta http-equiv='refresh' content='0; URL=http://localhost:8080/Web_market_war_exploded/MainPage'>" +
+        out.println("<meta http-equiv='refresh' content='0; URL=http://localhost:8080/Web_market_war_exploded/Bag'>" +
                 "</body></html>");
 
         out.println();
