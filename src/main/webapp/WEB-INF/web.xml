@@ -6,7 +6,7 @@
 
     <servlet>
         <servlet-name>MainPage</servlet-name>
-        <servlet-class>com.control.web_market.MainPage</servlet-class>
+        <servlet-class>com.model.web_market.MainPage</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>MainPage</servlet-name>
@@ -24,7 +24,7 @@
 
     <servlet>
         <servlet-name>Bag</servlet-name>
-        <servlet-class>com.control.web_market.Bag</servlet-class>
+        <servlet-class>com.model.web_market.Bag</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>Bag</servlet-name>

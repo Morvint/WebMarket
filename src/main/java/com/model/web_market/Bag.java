@@ -1,5 +1,6 @@
-package com.control.web_market;
+package com.model.web_market;
 
+import com.control.web_market.Product;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
