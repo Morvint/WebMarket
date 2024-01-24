@@ -12,7 +12,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-public class AddBag extends HttpServlet {
+public class  AddBag extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         PrintWriter out = response.getWriter();
@@ -34,7 +34,7 @@ public class AddBag extends HttpServlet {
             Product ads = new Product();
             while((s_prod = in_prod.readLine()) != null){
                 str_prod = s_prod.split(";");
-                ads.add(str_prod[0], str_prod[1], str_prod[2]);
+                ads.add(str_prod[0], str_prod[1], str_prod[2], str_prod[3]);
             }
             in_prod.close();
 
