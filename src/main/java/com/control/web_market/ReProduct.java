@@ -21,6 +21,8 @@ public class ReProduct extends HttpServlet {
         String name = request.getParameter("name");
         String description = request.getParameter("description");
         String qauantity = request.getParameter("qauantity");
+        String cost = request.getParameter("cost");
+
         String sess_name = (String)session.getAttribute("name");
         out.println("<p>" + name + "</p>");
         out.println("<p>" + sess_name + "</p>");
@@ -33,7 +35,7 @@ public class ReProduct extends HttpServlet {
             Product ads = new Product();
             while((s_prod = in_prod.readLine()) != null){
                 str_prod = s_prod.split(";");
-                ads.add(str_prod[0], str_prod[1], str_prod[2]);
+                ads.add(str_prod[0], str_prod[1], str_prod[2], str_prod[3]);
             }
 
             StringBuilder result = new StringBuilder();
@@ -41,12 +43,14 @@ public class ReProduct extends HttpServlet {
                 if(name.equals(ads.getAd(i).getName())){
                     result.append(ads.getAd(i).getName() + ";");
                     result.append(qauantity + ";");
-                    result.append(description + "\n");
+                    result.append(description + ";");
+                    result.append(cost + "\n");
                     continue;
                 }
                 result.append(ads.getAd(i).getName() + ";");
                 result.append(ads.getAd(i).getQuantity() + ";");
-                result.append(ads.getAd(i).getDescription() + "\n");
+                result.append(ads.getAd(i).getDescription() + ";");
+                result.append(ads.getAd(i).getCost() + "\n");
             }
 
             String text = result.toString();

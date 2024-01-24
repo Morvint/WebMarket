@@ -66,16 +66,18 @@ public class MainPage extends HttpServlet {
         Product ads = new Product();
         while((s = in.readLine()) != null){
             str = s.split(";");
-            ads.add(str[0], str[1], str[2]);
+            ads.add(str[0], str[1], str[2], str[3]);
         }
 
         out.println("<div class=\"flex-container-2\">");
         out.println("<div><div>");
-        out.println("<center>Наименование товара</center>");
+        out.println("Наименование товара");
         out.println("</div></div><div><div>");
-        out.println("<center>Описание товара</center>");
+        out.println("Описание товара");
         out.println("</div></div><div><div>");
-        out.println("<center>Количество товара</center>");
+        out.println("Количество товара");
+        out.println("</div></div><div><div>");
+        out.println("Цена");
         out.println("</div></div>");
         out.println("</div>");
 
@@ -96,6 +98,10 @@ public class MainPage extends HttpServlet {
             out.println("<div><div>");
             out.println(ads.getAd(i).getQuantity());
             out.println("</div></div>");
+
+            out.println("<div><div>");
+            out.println(ads.getAd(i).getCost() + "р");
+            out.println("</div></div>");
             out.println("</div>");
         }
         in.close();
@@ -111,18 +117,20 @@ public class MainPage extends HttpServlet {
         Product ads = new Product();
         while((s = in.readLine()) != null){
             str = s.split(";");
-            ads.add(str[0], str[1], str[2]);
+            ads.add(str[0], str[1], str[2], str[3]);
         }
 
         out.println("<div class=\"flex-container-2\">");
         out.println("<div><div>");
-        out.println("<center>Наименование товара</center>");
+        out.println("Название");
         out.println("</div></div><div><div>");
-        out.println("<center>Описание товара</center>");
+        out.println("Описание товара");
         out.println("</div></div><div><div>");
-        out.println("<center>Количество товара</center>");
+        out.println("Количество товара");
         out.println("</div></div><div><div>");
-        out.println("<center>Положить в корзину</center>");
+        out.println("Цена товара");
+        out.println("</div></div><div><div>");
+        out.println("Положить в корзину/удалить из каталога");
         out.println("</div></div>");
         out.println("</div>");
 
@@ -141,6 +149,10 @@ public class MainPage extends HttpServlet {
 
             out.println("<div><div>");
             out.println(ads.getAd(i).getQuantity());
+            out.println("</div></div>");
+
+            out.println("<div><div>");
+            out.println(ads.getAd(i).getCost() + "р");
             out.println("</div></div>");
 
             out.println("<div><div>");

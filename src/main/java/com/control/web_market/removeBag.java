@@ -35,7 +35,7 @@ public class removeBag extends HttpServlet {
             Product ads = new Product();
             while((s_prod = in_prod.readLine()) != null){
                 str_prod = s_prod.split(";");
-                ads.add(str_prod[0], str_prod[1], str_prod[2]);
+                ads.add(str_prod[0], str_prod[1], str_prod[2], str_prod[3]);
             }
 
 

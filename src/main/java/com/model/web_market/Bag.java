@@ -63,9 +63,9 @@ public class Bag extends HttpServlet {
             }
         }
         String text = result.toString();
-        printAllNolog(out, text);
+        printAllNoLog(out, text);
     }
-    private void printAllNolog(PrintWriter out, String bag_product)throws IOException
+    private void printAllNoLog(PrintWriter out, String bag_product)throws IOException
     {
         BufferedReader in = new BufferedReader(new FileReader("C:\\Users\\tv_20\\IdeaProjects\\Web_market\\product.txt"));
 
@@ -74,23 +74,27 @@ public class Bag extends HttpServlet {
         Product ads = new Product();
         while((s = in.readLine()) != null){
             str = s.split(";");
-            ads.add(str[0], str[1], str[2]);
+            ads.add(str[0], str[1], str[2], str[3]);
         }
 
         out.println("<div class=\"flex-container-2\">");
         out.println("<div><div>");
-        out.println("<center>Наименование товара</center>");
+        out.println("Наименование товара");
         out.println("</div></div><div><div>");
-        out.println("<center>Описание товара</center>");
+        out.println("Описание товара");
         out.println("</div></div><div><div>");
-        out.println("<center>Количество товара</center>");
+        out.println("Количество товара");
         out.println("</div></div><div><div>");
-        out.println("<center>Удалить товар</center>");
+        out.println("Цена");
+        out.println("</div></div><div><div>");
+        out.println("Удалить товар");
         out.println("</div></div>");
         out.println("</div>");
 
         String [] st;
         st = bag_product.split(";");
+
+        Integer Finalcost = 0;
 
         for(int i = 0; i < ads.size(); i++){
             for (int j = 1; j < st.length;j++){
@@ -111,15 +115,28 @@ public class Bag extends HttpServlet {
                     out.println("</div></div>");
 
                     out.println("<div><div>");
+                    out.println(ads.getAd(i).getCost() + "р");
+                    out.println("</div></div>");
+
+                    out.println("<div><div>");
                     out.println("<form action=\"removeBag\" method=\"post\">");
                     out.println("<input type=\"image\" src=\"Trash_bag.png\" width=\"32px\" height=\"32px\"/>");
                     out.println("<input type=\"hidden\" name=\"name\" value=\"" + ads.getAd(i).getName() + "\">");
                     out.println("</form></div></div>");
 
                     out.println("</div>");
+                    Finalcost = Finalcost + (Integer.parseInt(ads.getAd(i).getCost()) * Integer.parseInt(text[1]));
                 }
+
             }
         }
+
+        out.println("<div class=\"flex-container-2\">");
+        out.println("<div>");
+        System.out.println(Finalcost);
+        out.println("Итоговая стоимость товаров в корзине " + Integer.toString(Finalcost) + "р");
+        out.println("</div></div>");
+
         in.close();
         out.close();
     }

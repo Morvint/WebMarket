@@ -35,7 +35,7 @@ public class removeProduct extends HttpServlet {
             Product ads = new Product();
             while((s_prod = in_prod.readLine()) != null){
                 str_prod = s_prod.split(";");
-                ads.add(str_prod[0], str_prod[1], str_prod[2]);
+                ads.add(str_prod[0], str_prod[1], str_prod[2], str_prod[3]);
             }
 
 
@@ -91,7 +91,8 @@ public class removeProduct extends HttpServlet {
                 }
                 st.append(ads.getAd(i).getName() + ";");
                 st.append(ads.getAd(i).getQuantity() + ";");
-                st.append(ads.getAd(i).getDescription() + "\n");
+                st.append(ads.getAd(i).getDescription() + ";");
+                st.append(ads.getAd(i).getCost() + "\n");
             }
             String text = st.toString();
             PrintWriter writer_prod = new PrintWriter("C:\\Users\\tv_20\\IdeaProjects\\Web_market\\product.txt");

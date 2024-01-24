@@ -21,11 +21,13 @@ public class AddProduct extends HttpServlet {
         String name = request.getParameter("name");
         String description = request.getParameter("description");
         String qauantity = request.getParameter("qauantity");
+        String cost = request.getParameter("cost");
 
         StringBuilder str = new StringBuilder();
-        str.append("\n" + name + ";");
+        str.append(name + ";");
         str.append(qauantity + ";");
-        str.append(description);
+        str.append(description + ";");
+        str.append(cost + "\n");
 
         String text = str.toString();
         try {
